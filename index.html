@@ -81,19 +81,6 @@
             alert('You have to give browser the permission to run Webcam and mic ;( ');
         });
     
-    const video = document.querySelector('#myVidPlayer2');
-
-    //Core
-    window.navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            video.srcObject = stream;
-            video.onloadedmetadata = (e) => {
-                video.play();
-            };
-        })
-        .catch( () => {
-            alert('You have to give browser the permission to run Webcam and mic ;( ');
-        });
 </script>
 
 </body>
