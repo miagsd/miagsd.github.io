@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Five Night's At Freddy's In Real Life</title>
 <style>
 .button {
@@ -61,7 +60,8 @@
     <div class="static">
         <button style="background-color: #000000; border-color: #FFFFFF; color: #FFFFFF" class="hlwy" onclick="alert('You pressed the button!')">Hlwy</button>
         <div style="background-color: #000000; border-color: #FFFFFF; color: #FFFFFF" class="you">*You</div>
-        <video id="webcam1" width="640" height="480" autoplay></video>
+        <video id="myVidPlayer" controls muted autoplay></video>
+        <video id=" "
         <img src="https://cdn.discordapp.com/attachments/443869209039077376/1174894055029755924/zombie.gif?ex=6569405b&is=6556cb5b&hm=0ccf7e058cbca165c0f1880909821dd82bddcb6e7582d53f0c08c7fde269643a&" style="background-repeat: repeat"><img>
         
     </div>
@@ -72,7 +72,9 @@
     //Core
     window.navigator.mediaDevices.getUserMedia({ video: true })
         .then(stream => {
-            document.getElementById('webcam1').srcObject = stream;
+            video.srcObject = stream;
+            video.onloadedmetadata = (e) => {
+                video.play();
             };
         })
         .catch( () => {
