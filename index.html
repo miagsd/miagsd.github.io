@@ -3,85 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Five Night's At Freddy's In Real Life</title>
-<style>
-.button {
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.relative {
-  position: relative;
-  width: 400px;
-  height: 200px;
-  border: 3px solid #FFFFFF;
-} 
+    <style>
+        .button {
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        .relative {
+            position: relative;
+            width: 400px;
+            height: 200px;
+            border: 3px solid #FFFFFF;
+        } 
 
-.hlwy {
-  position: absolute;
-  top: 725px;
-  right: 1050px;
-  width: 100px;
-  height: 200px;
-  border: 3px solid;
-}
-    
-.you {
-    position: absolute;
-    top: 750px;
-    right: 800px;
-    width: 250px;
-    height: 250px;
-    border: 3px solid;
-}
-    
-.static {
-    min-height: 100vh;
-    width: 100%;
-    background-color: #000;
-    background-image: url(https://cdn.discordapp.com/attachments/937912758983352340/1174910903129489448/fnaf_static_GIF_1.gif?ex=6569500c&is=6556db0c&hm=83f2c20596b478367eb38c2852ed8c1d89d6baa73177ea9dffceedb1cbdd61f5&);
-    background-position: center;
-    background-repeat: repeat;
-    background-size: 100%;
-    color: #fff;
-    padding: 0 8%;
-}
-
-    
-.button1 {background-color: #000000;} 
-</style>
+        .hlwy {
+            position: absolute;
+            top: 725px;
+            right: 1050px;
+            width: 100px;
+            height: 200px;
+            border: 3px solid;
+        }
+        
+        .you {
+            position: absolute;
+            top: 750px;
+            right: 800px;
+            width: 250px;
+            height: 250px;
+            border: 3px solid;
+        }
+        
+        .static {
+            min-height: 100vh;
+            width: 100%;
+            background-color: #000;
+            background-image: url(https://cdn.discordapp.com/attachments/937912758983352340/1174910903129489448/fnaf_static_GIF_1.gif?ex=6569500c&is=6556db0c&hm=83f2c20596b478367eb38c2852ed8c1d89d6baa73177ea9dffceedb1cbdd61f5&);
+            background-position: center;
+            background-repeat: repeat;
+            background-size: 100%;
+            color: #fff;
+            padding: 0 8%;
+        }
+        
+        .button1 {
+            background-color: #000000;
+        } 
+    </style>
 </head>
 <body>
     <div class="static">
         <button style="background-color: #000000; border-color: #FFFFFF; color: #FFFFFF" class="hlwy" onclick="alert('You pressed the button!')">Hlwy</button>
         <div style="background-color: #000000; border-color: #FFFFFF; color: #FFFFFF" class="you">*You</div>
-        <video id="myVidPlayer" controls muted autoplay></video>
-        <video id=" "
-        <img src="https://cdn.discordapp.com/attachments/443869209039077376/1174894055029755924/zombie.gif?ex=6569405b&is=6556cb5b&hm=0ccf7e058cbca165c0f1880909821dd82bddcb6e7582d53f0c08c7fde269643a&" style="background-repeat: repeat"><img>
-        
+        <video id="myVidPlayer1" controls muted autoplay style="width: 50%;"></video>
+        <video id="myVidPlayer2" controls muted autoplay style="width: 50%;"></video>
     </div>
-<script type="text/javascript">
-    //Selector for your <video> element
-    const video = document.querySelector('#myVidPlayer');
+    <script type="text/javascript">
+        // Selector for your <video> elements
+        const video1 = document.querySelector('#myVidPlayer1');
+        const video2 = document.querySelector('#myVidPlayer2');
 
-    //Core
-    window.navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            video.srcObject = stream;
-            video.onloadedmetadata = (e) => {
-                video.play();
-            };
-        })
-        .catch( () => {
-            alert('You have to give browser the permission to run Webcam and mic ;( ');
-        });
-    
-</script>
+        // Core
+        window.navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                // Use the stream for both video elements
+                video1.srcObject = stream;
+                video2.srcObject = stream;
 
+                // Play both videos when metadata is loaded
+                video1.onloadedmetadata = (e) => {
+                    video1.play();
+                };
+                video2.onloadedmetadata = (e) => {
+                    video2.play();
+                };
+            })
+            .catch(() => {
+                alert('You have to give the browser the permission to run Webcam and mic ;( ');
+            });
+    </script>
 </body>
 </html>
